@@ -1,8 +1,8 @@
 <?php 
     $menu = [
-	['title' => 'Home', 'link' => '/'],
-	['title' => 'About', 'link' => '/about'],
-	['title' => 'Contacts', 'link' => '/contacts'],
+	['title' => 'Главная', 'link' => '/'],
+	['title' => 'О нас', 'link' => '/about'],
+	['title' => 'Контакты', 'link' => '/contacts'],
     ];
 ?>
 
@@ -20,10 +20,22 @@
 	<div id="navbar" class="navbar-collapse collapse">
 	    <ul class="nav navbar-nav">
 		@foreach ($menu as $el)
-		<li {{ Request::is($el['link']) ? 'class=active' : null }}>
+		<li<?php echo Request::is($el['link']) ? ' class="active"' : null ?>>
 		    <a href="{{ $el['link']}}">{{ $el['title'] }}</a>
 		</li>
 		@endforeach
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+		@if (Auth::guest())
+		<li<?php echo Request::is('register') ? ' class="active"' : null ?>>
+		    <a href="{{ url('/register') }}">Регистрация</a>
+		</li>
+		<li <?php echo Request::is('login') ? ' class="active"' : null ?>>
+		    <a href="{{ url('/login') }}">Войти</a>
+		</li>
+		@else
+		<li>LOGIN</li>
+		@endif
 	    </ul>
 	</div>
     </div>
