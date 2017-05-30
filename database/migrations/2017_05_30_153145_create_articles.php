@@ -19,7 +19,7 @@ class CreateArticles extends Migration
             $table->text('description');
             $table->string('file');
             $table->string('link');
-            $table->string('creator');
+            $table->integer('creator_id')->unsigned()->index();
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class CreateHomeTasks extends Migration
         Schema::create('home_tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('group_id')->unsigned()->index();
+            $table->integer('creator_id')->unsigned()->index();
             $table->string('title');
             $table->text('description');
             $table->string('file');

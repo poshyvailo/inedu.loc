@@ -16,7 +16,7 @@ class CreateGroup extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->string('creator');
+            $table->integer('creator_id')->unsigned()->index();
             $table->timestamps();
         });
     }
