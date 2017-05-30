@@ -1,9 +1,9 @@
-<?php 
-    $menu = [
+<?php
+$menu = [
 	['title' => 'Home', 'link' => '/'],
 	['title' => 'About', 'link' => '/about'],
 	['title' => 'Contacts', 'link' => '/contacts'],
-    ];
+];
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -25,6 +25,8 @@
 		</li>
 		@endforeach
 	    </ul>
+	    @yield('registration')
 	</div>
+
     </div>
 </nav>
