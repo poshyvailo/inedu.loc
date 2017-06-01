@@ -1,22 +1,8 @@
 @extends('layouts.app')
-@section('registration')
-<form class="form-1">
-    <p class="field">
-        <input type="text" name="login" placeholder="Логин или емэйл">
-        <!--<i class="icon-user icon-large"></i> -->
-        <input type="password" name="password" placeholder="Пароль">
-        <i class="icon-lock icon-large"></i>
-    </p>       
-    <p class="submit">
-        <button type="submit" name="submit"><i class="icon-arrow-right icon-large">LogIn</i></button>
-	<a href='#'><i class="icon-arrow-right icon-large">Registration</i></a>
-    </p>
-</form>
-@endsection
-@section('content')
-<div>
-<<<<<<< HEAD
 
+@section('content')
+<canvas id="pixie"></canvas>
+<div>
     <p>
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
@@ -29,8 +15,5 @@
     <p>
 	Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. Nunc sed lacus at augue bibendum dapibus.
     </p>
-=======
-     <canvas id="pixie"></canvas>
->>>>>>> master
 </div>
 @endsection

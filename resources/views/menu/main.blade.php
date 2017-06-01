@@ -5,14 +5,7 @@ $menu = [
 	['title' => 'About', 'link' => '/about'],
 	['title' => 'Contacts', 'link' => '/contacts'],
 ];
-=======
-<?php 
-    $menu = [
-	['title' => 'Главная', 'link' => '/'],
-	['title' => 'О нас', 'link' => '/about'],
-	['title' => 'Контакты', 'link' => '/contacts'],
-    ];
->>>>>>> master
+
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -34,9 +27,9 @@ $menu = [
 		</li>
 		@endforeach
 	    </ul>
-<<<<<<< HEAD
+
 	    @yield('registration')
-=======
+
 	    <ul class="nav navbar-nav navbar-right">
 		@if (Auth::guest())
 		<li<?php echo Request::is('register') ? ' class="active"' : null ?>>
@@ -49,7 +42,6 @@ $menu = [
 		<li>LOGIN</li>
 		@endif
 	    </ul>
->>>>>>> master
 	</div>
 
     </div>
