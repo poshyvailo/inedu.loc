@@ -18,5 +18,17 @@ body {
 }
 p {
     color: #151515;
-     font-size:30px;
+     font-size:22px;
+}
+
+#left{
+    float: left;
+    width: 40%;
+}
+#left p{
+    font-size:30px;
+}
+#left img{
+    width: 70%;
+
 }
