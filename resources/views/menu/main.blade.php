@@ -34,7 +34,9 @@
 		    <a href="{{ url('/login') }}">Войти</a>
 		</li>
 		@else
-		<li>LOGIN</li>
+		<li>
+		    <a href="{{ url('/logout') }}">Выйти</a>
+		</li>
 		@endif
 	    </ul>
 	</div>
