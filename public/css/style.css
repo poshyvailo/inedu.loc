@@ -26,6 +26,7 @@ p {
     width: 40%;
 }
 #left p{
+    color: darkorange;
     font-size:30px;
 }
 #left img{
