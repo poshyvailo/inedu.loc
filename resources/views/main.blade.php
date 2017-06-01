@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-Hello
+<div>
+     <canvas id="pixie"></canvas>
+</div>
 @endsection
