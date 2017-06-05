@@ -65,16 +65,22 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-	if ($data['avatar']->isValid()) {
-	    $test = $data['avatar']->move('images', 'test.jpg');
-	}
+        $defaultAvatar = DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'static' . DIRECTORY_SEPARATOR . 'avatar.png';
+        $avatarPath = 'images'. DIRECTORY_SEPARATOR .'avatar';
+        $avatar = null;
+
+	    if (isset($data['avatar'])) {
+	        $avatarType = explode('/', $data['avatar']->getMimeType())[1];
+	        $avatarName = uniqid() . '.' . $avatarType;
+	        $avatar = $data['avatar']->move($avatarPath, $avatarName);
+	    }
 	
-	return User::create([
+	    return User::create([
 		    'name' => $data['name'],
 		    'surname' => $data['surname'],
 		    'email' => $data['email'],
 		    'password' => bcrypt($data['password']),
-		    'avatar' => $test->getPathName(),
-	]);
+		    'avatar' => $avatar ? DIRECTORY_SEPARATOR . $avatar->getPathName() : $defaultAvatar,
+	    ]);
     }
 }
