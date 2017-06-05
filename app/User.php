@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
-    public function test(){
-	var_dump('jddjkdk');
+    public function group(){
+	    return $this->hasOne(Group::class, 'creator_id');
     }
 }

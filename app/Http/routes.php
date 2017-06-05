@@ -23,3 +23,15 @@ Route::get('/home', 'HomeController@index');
 Route::get('profile/view/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@view']);
 Route::get('profile/edit/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@edit']);
 Route::post('profile/update', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@update']);
+
+//Dashboard
+Route::get('/dashboard', 'DashboardController@show');
+
+//Group
+Route::get('/groups', 'GroupController@viewAll');
+Route::get('/groups/create', 'GroupController@create');
+Route::post('/groups/create', 'GroupController@save');
+
+Route::get('/group/{group}', 'GroupController@view');
+Route::post('/group/{group}', 'GroupController@update');
+Route::delete('/group/{group}', 'GroupController@delete');
