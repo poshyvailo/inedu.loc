@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -19,15 +19,13 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function boot(Router $router)
     {
-        $router->model('profile/view', 'App\User');
-        $router->model('profile/edit', 'App\User');
-        $router->model('group/view', 'App\Group');
-        $router->model('group/edit', 'App\Group');
+        //
 
         parent::boot($router);
     }
@@ -35,7 +33,8 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function map(Router $router)
@@ -50,7 +49,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     protected function mapWebRoutes(Router $router)

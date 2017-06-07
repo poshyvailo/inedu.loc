@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^poshik.890m.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.poshik.890m.com$
+RewriteCond %{REQUEST_URI} !folder/
+RewriteRule (.*) /public/$1 [L]

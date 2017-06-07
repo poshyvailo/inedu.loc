@@ -44,10 +44,19 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'auth'        => \App\Http\Middleware\Authenticate::class,
+        'auth.basic'  => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'can'         => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+        'guest'       => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'    => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'editown'     => \App\Http\Middleware\EditOwn::class,
+        'disabledemo' => \App\Http\Middleware\DisableDemo::class,
+        'editgroup'   => \App\Http\Middleware\EditGroup::class,
+        'editpage'    => \App\Http\Middleware\EditPage::class,
+        'role'        => \Zizaco\Entrust\Middleware\EntrustRole::class,
+        'permission'  => \Zizaco\Entrust\Middleware\EntrustPermission::class,
+        'ability'     => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        'cors'        => \App\Http\Middleware\Cors::class,
+
     ];
 }
