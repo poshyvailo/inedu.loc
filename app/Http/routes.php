@@ -84,7 +84,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::post('/member/update-role', 'TimelineController@assignMemberRole');
 Route::post('/member/updatepage-role', 'TimelineController@assignPageMemberRole');
