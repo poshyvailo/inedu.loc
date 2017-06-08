@@ -50,6 +50,6 @@ class GroupController extends Controller
 
     public function delete(Request $request, Group $group)
     {
-
+	
     }
 }
