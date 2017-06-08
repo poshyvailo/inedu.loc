@@ -19,15 +19,14 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-<<<<<<< HEAD
-Route::get('/about', function(){
+Route::get('/about', function() {
     return view('about');
 });
 
-Route::get('/contacts', function(){
+Route::get('/contacts', function() {
     return view('contacts');
 });
-=======
+
 // Profile
 Route::get('profile/view/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@view']);
 Route::get('profile/edit/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@edit']);
@@ -44,4 +43,4 @@ Route::post('/groups/create', 'GroupController@save');
 Route::get('/group/{group}', 'GroupController@view');
 Route::post('/group/{group}', 'GroupController@update');
 Route::delete('/group/{group}', 'GroupController@delete');
->>>>>>> master
+

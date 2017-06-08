@@ -31,5 +31,5 @@ p {
 }
 #left img{
     width: 70%;
-
+    float: left;
 }
