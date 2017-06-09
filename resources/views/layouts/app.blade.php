@@ -23,6 +23,8 @@
                     @include('menu.left-menu')
                 </div>
                 <div class="col-md-9">
+                    @include('alerts.success')
+                    @include('alerts.errors')
                     @yield('content')
                 </div>
             </div>

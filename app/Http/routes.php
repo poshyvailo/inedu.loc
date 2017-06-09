@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -25,13 +27,32 @@ Route::get('profile/edit/{user}', ['middleware' => 'auth', 'uses' => 'Profile\Pr
 Route::post('profile/update', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@update']);
 
 //Dashboard
-Route::get('/dashboard', 'DashboardController@show');
+//Route::get('/dashboard', 'DashboardController@show');
 
-//Group
-Route::get('/groups', 'GroupController@viewAll');
-Route::get('/groups/create', 'GroupController@create');
-Route::post('/groups/create', 'GroupController@save');
+//Groups
+Route::get('/groups', 'GroupController@viewAll'); // Отображение всех групп пользователя
+Route::get('/groups/create', 'GroupController@create'); // Форма создания группы
+Route::post('/groups/create', 'GroupController@save'); // Добавление новой группы в БД
+Route::get('/groups/{group}', 'GroupController@view'); // Отображение группы
+Route::get('/groups/{group}/edit', 'GroupController@updateView'); // Форма редактирования группы
+Route::post('/groups/{group}/edit', 'GroupController@updateSave'); // Обновление группы в БД
+Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление группы
 
-Route::get('/group/{group}', 'GroupController@view');
-Route::post('/group/{group}', 'GroupController@update');
-Route::delete('/group/{group}', 'GroupController@delete');
+
+//Route::get('/testmail', function (Request $request) {
+//        $status = $request->session()->has('status') ? $request->session()->get('status') : false;
+//
+//    return view('testmail', ['status' => $status]);
+//});
+//Route::post('/testmail', function (Request $request) {
+//    $email = $request->email;
+//    $subject = $request->subject;
+//    $text = $request->text;
+//
+//    Mail::send('emails.test', ['subject' => $subject, 'text' => $text], function ($message) use ($email) {
+//        $message->from('inedu.notice@gmail.com', 'Laravel');
+//        $message->to($email);
+//    });
+//    $request->session()->flash('status', 'Задание выполнено успешно!');
+//    return redirect('/testmail');
+//});
