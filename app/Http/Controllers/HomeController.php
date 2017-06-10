@@ -32,5 +32,9 @@ class HomeController extends Controller {
     public function contacts() {
          return view('contacts');
     }
+    
+    public function sand(){
+        //
+    }
 
 }
