@@ -18,14 +18,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/about', function() {
-    return view('about');
-});
-
-Route::get('/contacts', function() {
-    return view('contacts');
-});
+Route::get('/about', 'HomeController@about');
+Route::get('/contacts', 'HomeController@contacts');
 
 // Profile
 Route::get('profile/view/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@view']);
