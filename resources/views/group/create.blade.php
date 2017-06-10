@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Создание группы')
 @section('content')
     <h3 class="page-header">Создание группы</h3>
 <div>

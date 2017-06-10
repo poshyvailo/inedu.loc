@@ -49,8 +49,9 @@ Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление 
 //    $subject = $request->subject;
 //    $text = $request->text;
 //
-//    Mail::send('emails.test', ['subject' => $subject, 'text' => $text], function ($message) use ($email) {
+//    Mail::send('emails.test', ['subject' => $subject, 'text' => $text], function ($message) use ($email, $subject) {
 //        $message->from('inedu.notice@gmail.com', 'Laravel');
+//        $message->subject($subject);
 //        $message->to($email);
 //    });
 //    $request->session()->flash('status', 'Задание выполнено успешно!');
