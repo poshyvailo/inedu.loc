@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -33,8 +34,23 @@ class HomeController extends Controller {
          return view('contacts');
     }
     
-    public function sand(){
-        //
-    }
+    public function send(Request $request){
+        $email=$request->email;
+        $name=$request->name;
+        $comments=$request->comments;
+        
+        Mail::send('/contacts', 
+        ['name'=>$name,
+         'comments'=>$comments],
+        
+            function ($message) use ($email, $name){
+            $message->from($email);
+            $message->name($name);
+            $message->to('inedu.notice@gmail.com', 'Laravel');
+            });
+            
+        $request->session()->flash('status', 'Сообещение отправлено успешно!');
+        return redirect('/testmail');
+        }
 
 }
