@@ -39,18 +39,18 @@ class HomeController extends Controller {
         $name=$request->name;
         $comments=$request->comments;
         
-        Mail::send('/contacts', 
+        Mail::send('mail.email', 
         ['name'=>$name,
          'comments'=>$comments],
         
             function ($message) use ($email, $name){
-            $message->from($email);
+            $message->from('inedu.notice@gmail.com', 'Laravel');
             $message->name($name);
-            $message->to('inedu.notice@gmail.com', 'Laravel');
+            $message->to($email);
             });
             
         $request->session()->flash('status', 'Сообещение отправлено успешно!');
-        return redirect('/testmail');
+        return redirect('/email');
         }
 
 }
