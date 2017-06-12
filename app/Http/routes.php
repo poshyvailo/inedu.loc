@@ -35,3 +35,21 @@ Route::post('/groups/create', 'GroupController@save');
 Route::get('/group/{group}', 'GroupController@view');
 Route::post('/group/{group}', 'GroupController@update');
 Route::delete('/group/{group}', 'GroupController@delete');
+
+//Hometask
+Route::get('hometasks', 'HomeTaskController@viewAll');
+Route::get('/hometasks/hometaskscreate', 'HomeTaskController@create');
+Route::post('/hometasks/hometaskscreate', 'HomeTaskController@save');
+
+Route::get('/hometasks/{id}', 'HomeTaskController@view');
+Route::post('/hometasks/{id}', 'HomeTaskController@update');
+Route::delete('/hometasks/{id}', 'HomeTaskController@delete');
+
+//Article
+Route::get('articles', 'ArticleController@viewAll');
+Route::get('/articles/articlescreate', 'ArticleController@create');
+Route::post('/articles/articlescreate', 'ArticleController@save');
+
+Route::get('/articles/{id}', 'ArticleController@view');
+Route::post('/articles/{id}', 'ArticleController@update');
+Route::delete('/articles/{id}', 'ArticleController@delete');

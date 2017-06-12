@@ -11,8 +11,8 @@
     <li<?php echo Request::segment(1) == 'articles' ? ' class="active"' : null ?>>
         <a href="{{ url('/articles') }}">Статьи</a>
     </li>
-    <li<?php echo Request::segment(1) == 'home-tasks' ? ' class="active"' : null ?>>
-        <a href="{{ url('/home-tasks') }}">Домашнии задания</a>
+    <li<?php echo Request::segment(1) == 'hometasks' ? ' class="active"' : null ?>>
+        <a href="{{ url('/hometasks') }}">Домашнии задания</a>
     </li>
     <li<?php echo Request::segment(1) == 'events' ? ' class="active"' : null ?>>
         <a href="{{ url('/events') }}">События</a>
