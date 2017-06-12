@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
+@section('title', $group->title)
+@section('groupName', $group->title)
+
 @section('content')
-    <h3 class="page-header">{{ $title }}</h3>
-    <p>{{ $description }}</p>
-    @if ($owner)
-    <p>Owner</p>
-    @endif
+    <h3 class="page-header">{{ $group->title }}</h3>
+    <p>{{ $group->description }}</p>
 @endsection

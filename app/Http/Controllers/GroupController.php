@@ -9,7 +9,9 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Invite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class GroupController extends Controller
@@ -52,13 +54,9 @@ class GroupController extends Controller
 
     public function view(Request $request, Group $group)
     {
-        $user = $request->user();
-
-        $owner = $user->id == $group->creator_id ? true : false;
-
+        $owner = $request->user()->id == $group->creator_id ? true : false;
         return view('group.view', [
-            'title' => $group->title,
-            'description' => $group->description,
+            'group' => $group,
             'owner' => $owner,
         ]);
     }
@@ -95,5 +93,39 @@ class GroupController extends Controller
     public function delete(Request $request, Group $group)
     {
 
+    }
+
+    public function inviteForm(Group $group)
+    {
+        return view('group.invite', [
+            'group' => $group,
+        ]);
+    }
+
+    public function sendInvite(Request $request, Group $group)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
+
+        $invite = new Invite();
+        $invite->email = $request->email;
+        $invite->group_id = $group->id;
+        $invite->user_id = $request->user()->id;
+        $invite->active = true;
+        $invite->save();
+
+        Mail::send('emails.invite', ['group' => $group, 'user' => $request->user()], function ($message) use ($request, $group) {
+            $message->from('inedu.notice@gmail.com', 'Laravel');
+            $message->subject('Приглашение в группу "' . $group->title . '"');
+            $message->to($request->email);
+        });
+
+        $request->session()->flash(
+            'message_success',
+            'Приглашение успешно отправлено!'
+        );
+
+        return redirect($request->path());
     }
 }

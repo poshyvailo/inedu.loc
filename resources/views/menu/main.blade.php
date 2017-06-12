@@ -36,6 +36,14 @@ $menu = [
                     </li>
                 @else
                     <li>
+                        <a href="{{ url('/invites') }}">
+                            <i class="fa fa-bell" aria-hidden="true"></i>
+                            @if ($inviteCount > 0)
+                            <span class="badge">{{ $inviteCount }}</span>
+                            @endif
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ url('/profile/view/' . Auth::user()->id) }}">
                             {{Auth::user()->surname}}, {{Auth::user()->name}}
                         </a>

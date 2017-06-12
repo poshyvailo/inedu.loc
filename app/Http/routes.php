@@ -31,13 +31,24 @@ Route::post('profile/update', ['middleware' => 'auth', 'uses' => 'Profile\Profil
 
 //Groups
 Route::get('/groups', 'GroupController@viewAll'); // Отображение всех групп пользователя
+//Create
 Route::get('/groups/create', 'GroupController@create'); // Форма создания группы
 Route::post('/groups/create', 'GroupController@save'); // Добавление новой группы в БД
+//View
 Route::get('/groups/{group}', 'GroupController@view'); // Отображение группы
+//Edit
 Route::get('/groups/{group}/edit', 'GroupController@updateView'); // Форма редактирования группы
 Route::post('/groups/{group}/edit', 'GroupController@updateSave'); // Обновление группы в БД
+//Invite
+Route::get('/groups/{group}/invite', 'GroupController@inviteForm'); // Пригласить в группу
+Route::post('/groups/{group}/invite', 'GroupController@sendInvite'); // Отправить приглашение
+//Delete
 Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление группы
 
+//Invites
+Route::get('/invites', 'InviteController@show'); // Отображение приглашений
+Route::post('/invite/{group/join}', 'InviteController@join'); // Вступить в группу
+Route::post('/invite/{group}/reject', 'InviteController@reject'); // Отклонить приглашение
 
 //Route::get('/testmail', function (Request $request) {
 //        $status = $request->session()->has('status') ? $request->session()->get('status') : false;
