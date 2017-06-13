@@ -35,3 +35,12 @@ Route::post('/groups/create', 'GroupController@save');
 Route::get('/group/{group}', 'GroupController@view');
 Route::post('/group/{group}', 'GroupController@update');
 Route::delete('/group/{group}', 'GroupController@delete');
+
+//Chat
+Route::get('/groups/chat', 'ChatController@viewAll');
+Route::get('/groups/chat/create', 'ChatController@create');
+Route::post('/groups/chat/create', 'ChatController@save');
+
+Route::get('/group/chat/{id}', 'ChatController@view');
+Route::post('/group/chat/{id}', 'ChatController@update');
+Route::delete('/group/chat/{id}', 'ChatController@delete');
