@@ -14,8 +14,10 @@ class CreateInviteTable extends Migration
     {
         Schema::create('invites', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('email');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('group_id')->unsigned()->index();
+            $table->boolean('active');
             $table->timestamps();
         });
     }
