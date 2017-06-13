@@ -47,6 +47,12 @@ class HomeTaskController extends Controller
 
         return redirect('/hometasks');
     }
+    
+    public function update(Request $request){
+        $hometasks->update();
+        $hometasks->save();
+        return back()->with('massage','ДЗ обновлены');
+    }
 
     public function delete(Request $request, Group $group)
     {
