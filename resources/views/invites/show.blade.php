@@ -14,8 +14,8 @@
             <td>{{ $invite->group->title }}</td>
             <td>{{ $invite->user->name }} {{ $invite->user->surname }}</td>
             <td>
-                <a href="{{ url('/invite/' . $invite->id . '/join') }}" class="btn btn-primary">Принять</a>
-                <a href="{{ url('/invite/' . $invite->id . '/reject') }}" class="btn btn-danger">Отклонить</a>
+                <a href="{{ url('/invite/' . $invite->group->id . '/join') }}" class="btn btn-primary">Принять</a>
+                <a href="{{ url('/invite/' . $invite->group->id . '/reject') }}" class="btn btn-danger">Отклонить</a>
             </td>
         </tr>
     @endforeach

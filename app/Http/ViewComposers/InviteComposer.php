@@ -20,7 +20,7 @@ class InviteComposer
     {
         if (Auth::check()) {
             $user_id = Auth::user()->email;
-            $this->invites = Invite::where('email', $user_id)->count();
+            $this->invites = Invite::where([['email', $user_id], ['active', true]])->count();
         } else {
             $this->invites = null;
         }

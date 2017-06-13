@@ -47,8 +47,8 @@ Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление 
 
 //Invites
 Route::get('/invites', 'InviteController@show'); // Отображение приглашений
-Route::post('/invite/{group/join}', 'InviteController@join'); // Вступить в группу
-Route::post('/invite/{group}/reject', 'InviteController@reject'); // Отклонить приглашение
+Route::get('/invite/{group}/join', 'InviteController@join'); // Вступить в группу
+Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклонить приглашение
 
 //Route::get('/testmail', function (Request $request) {
 //        $status = $request->session()->has('status') ? $request->session()->get('status') : false;
