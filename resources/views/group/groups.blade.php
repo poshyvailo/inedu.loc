@@ -33,7 +33,7 @@
                     <span class="glyphicon glyphicon-pencil"></span> Редактировать
                 </a>
                 <a href="#" class="btn btn-danger btn-sm">
-                    <span class="glyphicon glyphicon-trash"></span> Удалить
+			<span class="glyphicon glyphicon-trash"></span> Удалить
                 </a>
             </div>
         </div>
