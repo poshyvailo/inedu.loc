@@ -17,8 +17,8 @@
            class="list-group-item{!! Request::segment(1) == 'articles' ? ' active' : null !!}">
             <i class="fa fa-file-text-o" aria-hidden="true"></i> Статьи
         </a>
-        <a href="{{ url('/home-tasks') }}"
-           class="list-group-item{!! Request::segment(1) == 'home-tasks' ? ' active' : null !!}">
+        <a href="{{ url('/hometasks') }}"
+           class="list-group-item{!! Request::segment(1) == 'hometasks' ? ' active' : null !!}">
             <i class="fa fa-tasks" aria-hidden="true"></i> Домашнии задания
         </a>
         <a href="{{ url('/events') }}"

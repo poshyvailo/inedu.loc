@@ -48,12 +48,25 @@ class HomeTaskController extends Controller
         return redirect('/hometasks');
     }
     
-    public function update(Request $request){
-        $hometasks->update();
-        $hometasks->save();
-        return back()->with('massage','ДЗ обновлены');
+//    public function update(Request $request){
+//        $hometasks->update();
+//        $hometasks->save();
+//        return back()->with('massage','ДЗ обновлены');
+//    }
+    
+    public function update(Home_task $hometasks)
+    {
+        return view('hometasks.update-view', [
+            'hometasks' => $hometasks
+        ]);
     }
-
+    public function updateSave(Request $request, Home_task $hometasks)
+    {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'description' => 'required|string',
+        ]);  
+    }
     public function delete(Request $request, Group $group)
     {
 
