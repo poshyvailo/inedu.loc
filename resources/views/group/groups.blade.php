@@ -26,14 +26,14 @@
                 {{ $group->description }}
             </div>
             <div class="panel-footer">
-                <a href="#" class="btn-success btn btn-sm">
+                <a href="{{ url('/groups/' . $group->id) }}" class="btn-success btn btn-sm">
                     <span class="glyphicon glyphicon-eye-open"></span> Перейти
                 </a>
-                <a href="#" class="btn-primary btn btn-sm">
+                <a href="{{ url('/groups/' . $group->id . '/edit') }}" class="btn-primary btn btn-sm">
                     <span class="glyphicon glyphicon-pencil"></span> Редактировать
                 </a>
                 <a href="#" class="btn btn-danger btn-sm">
-                    <span class="glyphicon glyphicon-trash"></span> Удалить
+			<span class="glyphicon glyphicon-trash"></span> Удалить
                 </a>
             </div>
         </div>
