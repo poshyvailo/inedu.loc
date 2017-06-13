@@ -25,7 +25,8 @@
                 </div>
                 <div class="col-md-9">
                     @include('alerts.success')
-                    @include('alerts.errors')
+                    @include('alerts.danger')
+                    @include('alerts.warning')
                     @yield('content')
                 </div>
             </div>

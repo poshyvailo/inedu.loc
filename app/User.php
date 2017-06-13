@@ -33,7 +33,7 @@ class User extends Authenticatable
 	$groups = Member::where('user_id', $this->id)->get();
 	if (count($groups) > 0) {
 	    return true;
-	} 
+	}
 	return false;
     }
 }
