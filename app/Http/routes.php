@@ -41,3 +41,5 @@ Route::get('/group/{group}', 'GroupController@view');
 Route::post('/group/{group}', 'GroupController@update');
 Route::delete('/group/{group}', 'GroupController@delete');
 
+//Chat
+Route::get('/forums', 'ChatController@show');
