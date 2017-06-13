@@ -35,7 +35,7 @@ Route::get('/groups', 'GroupController@viewAll'); // Отображение вс
 Route::get('/groups/create', 'GroupController@create'); // Форма создания группы
 Route::post('/groups/create', 'GroupController@save'); // Добавление новой группы в БД
 //View
-Route::get('/groups/{group}', 'GroupController@view'); // Отображение группы
+Route::get('/groups/{group}', ['middleware' => 'group', 'uses' => 'GroupController@view']); // Отображение группы
 //Edit
 Route::get('/groups/{group}/edit', 'GroupController@updateView'); // Форма редактирования группы
 Route::post('/groups/{group}/edit', 'GroupController@updateSave'); // Обновление группы в БД

@@ -24,19 +24,18 @@ class InviteController extends Controller
 
     public function join(Request $request, Group $group)
     {
-	$user = $request->user()->id;
+	$userEmail = $request->user()->email;
+	$userId = $request->user()->id;
 	
 	$member = new Member();
 	$member->group_id = $group->id;
-	$member->user_id = $user;
+	$member->user_id = $userId;
 	$member->save();
 	
-	$invs = Invite::where([['user_id', $user],['group_id', $group->id]])->get();
-	foreach ($invs as $inv) {
-	    $inv->active = false;
-	    $inv->save();
-	}
-	var_dump($invs);
+	$inv = Invite::where([['email', $userEmail],['group_id', $group->id]])->first();
+	$inv->active = false;
+	$inv->save();
+	
 	return redirect('/groups/' . $group->id);
     }
 
