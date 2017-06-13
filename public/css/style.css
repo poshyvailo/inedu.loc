@@ -18,7 +18,7 @@ body {
 }
 p {
     color: #151515;
-     font-size:22px;
+    font-size:22px;
 }
 
 #left{
@@ -32,4 +32,24 @@ p {
 #left img{
     width: 70%;
     float: left;
+}
+
+#msg-box{
+    overflow:auto; 
+    width:750px; 
+    height:300px; 
+    border:1px solid black; 
+    padding:5px; 
+    margin:0px; 
+    display:inline-block; 
+    background:#FFF; 
+    margin:32px 0 0 32px;
+}
+#msg-box ul{
+    list-style:none; 
+    padding:0px; 
+    margin:0px;
+}
+#t-box{
+    margin-left:32px;
 }
