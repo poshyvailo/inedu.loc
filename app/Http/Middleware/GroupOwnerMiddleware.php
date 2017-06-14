@@ -15,7 +15,7 @@ class GroupOwnerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->id != $request->group->id) {
+        if ($request->user()->id != $request->group->creator_id) {
             $request->session()->flash(
                 'message_danger',
                 'У Вас нет прав для посещения этой группы'

@@ -5,18 +5,20 @@
             <h2>В группе нет ДЗ</h2>
             <hr>
             @if ($owner)
-            <a href="{{ url('group/' . $group->id . '/hometasks/create') }}" class="btn btn-lg btn-success">
+            <a href="{{ url('/group/' . $group->id . '/hometasks/create') }}" class="btn btn-lg btn-success">
                 <span>Добавить ДЗ</span>
             </a>
             @endif
         </div>
 @else
+    @if ($owner)
     <div class="pull-right">
-        <a href="{{ url('group/' . $group->id . '/hometasks/create') }}" class="text-right">
+        <a href="{{ url('/group/' . $group->id . '/hometasks/create') }}" class="text-right">
             <span class="glyphicon glyphicon-plus"></span>
            Добавить домашнее задание
         </a>
     </div>
+    @endif
     <h3 class="page-header">Список ДЗ</h3>
     @foreach($hometasks as $hometask)
         <div class="panel panel-default">
@@ -25,11 +27,11 @@
                 {{ $hometask->description }}
             </div>
             <div class="panel-footer">
-                <a href="{{ url('/hometasks/' . $hometask->id) }}" class="btn-success btn btn-sm">
+                <a href="{{ url('/group/' . $group->id . '/hometask/' . $hometask->id) }}" class="btn-success btn btn-sm">
                     <span class="glyphicon glyphicon-eye-open"></span> Перейти
                 </a>
                 @if ($owner)
-                <a href="{{ url('/hometasks/' . $hometask->id . '/edit') }}" class="btn-primary btn btn-sm">
+                <a href="{{ url('/group/' . $group->id . '/hometask/' . $hometask->id . '/edit') }}" class="btn-primary btn btn-sm">
                     <span class="glyphicon glyphicon-pencil"></span> Редактировать
                 </a>
                 <a href="#" class="btn btn-danger btn-sm">

@@ -36,11 +36,11 @@ Route::post('/groups/create', 'GroupController@save'); // Добавление �
 //View
 Route::get('/groups/{group}', ['middleware' => 'group', 'uses' => 'GroupController@view']); // Отображение группы
 //Edit
-Route::get('/groups/{group}/edit', 'GroupController@updateView')->middleware('group'); // Форма редактирования группы
-Route::post('/groups/{group}/edit', 'GroupController@updateSave')->middleware('group'); // Обновление группы в БД
+Route::get('/groups/{group}/edit', 'GroupController@updateView')->middleware(['group', 'groupOwner']); // Форма редактирования группы
+Route::post('/groups/{group}/edit', 'GroupController@updateSave')->middleware(['group', 'groupOwner']); // Обновление группы в БД
 //Invite
-Route::get('/groups/{group}/invite', 'GroupController@inviteForm')->middleware('group'); // Пригласить в группу
-Route::post('/groups/{group}/invite', 'GroupController@sendInvite')->middleware('group'); // Отправить приглашение
+Route::get('/groups/{group}/invite', 'GroupController@inviteForm')->middleware(['group', 'groupOwner']); // Пригласить в группу
+Route::post('/groups/{group}/invite', 'GroupController@sendInvite')->middleware(['group', 'groupOwner']); // Отправить приглашение
 //Delete
 Route::delete('/groups/{group}', 'GroupController@delete')->middleware('group'); // Удаление группы
 
@@ -55,13 +55,13 @@ Route::get('/classmates', 'HomeController@classmates');
 
 //Hometask
 Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll');
-Route::get('/group/{group}/hometasks/create', 'HomeTaskController@create')->middleware('groupOwner');
-Route::post('/group/{group}/hometasks/create', 'HomeTaskController@save');
+Route::get('/group/{group}/hometasks/create', 'HomeTaskController@create')->middleware(['group', 'groupOwner']);
+Route::post('/group/{group}/hometasks/create', 'HomeTaskController@save')->middleware(['group', 'groupOwner']);
 
 Route::get('/group/{group}/hometask/{hometask}', 'HomeTaskController@view');
-Route::get('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@edit-update');
-Route::post('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@update');
-Route::delete('/group/{group}/hometask/{hometask}/delete', 'HomeTaskController@delete');
+Route::get('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@edit')->middleware(['group', 'groupOwner']);
+Route::post('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@update')->middleware(['group', 'groupOwner']);
+Route::delete('/group/{group}/hometask/{hometask}/delete', 'HomeTaskController@delete')->middleware(['group', 'groupOwner']);
 
 //Article
 Route::get('articles', 'ArticleController@viewAll');
