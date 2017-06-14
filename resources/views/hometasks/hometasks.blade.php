@@ -2,11 +2,13 @@
 @section('content')
 @if(count($hometasks) == 0)
         <div class="text-center">
-            <h2>У вас нет ДЗ</h2>
+            <h2>В группе нет ДЗ</h2>
             <hr>
+            @if ($owner)
             <a href="{{ url('/hometasks/hometaskscreate') }}" class="btn btn-lg btn-success">
                 <span>Добавить ДЗ</span>
             </a>
+            @endif
         </div>
 @else
     <h3 class="page-header">Список ДЗ</h3>

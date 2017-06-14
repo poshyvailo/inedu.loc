@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Home_task;
 use Illuminate\Http\Request;
 
@@ -16,16 +17,18 @@ class HomeTaskController extends Controller
 
     function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('group');
     }
 
-    public function viewAll(Request $request)
+    public function viewAll(Request $request, Group $group)
     {
-        $user = $request->user();
-        $hometasks = Home_task::where('creator_id', $user->id)->get();
+        if ($request->user()->id == $group->creator_id) $owner = true;
+        $hometasks = $group->hometask()->get();
 
         return view('hometasks.hometasks', [
             'hometasks' => $hometasks,
+            'group' => $group,
+            'owner' => isset($owner) ? $owner : false,
         ]);
     }
 

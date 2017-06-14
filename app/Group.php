@@ -14,4 +14,14 @@ class Group extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function article()
+    {
+        return $this->hasOne(Article::class);
+    }
+
+    public function hometask()
+    {
+        return $this->hasOne(Home_task::class, 'group_id');
+    }
 }

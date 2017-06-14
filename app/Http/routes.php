@@ -26,9 +26,6 @@ Route::get('profile/view/{user}', ['middleware' => 'auth', 'uses' => 'Profile\Pr
 Route::get('profile/edit/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@edit']);
 Route::post('profile/update', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@update']);
 
-//Dashboard
-//Route::get('/dashboard', 'DashboardController@show');
-
 /**
  * Groups
  **/
@@ -56,34 +53,15 @@ Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклон
 //classmates
 Route::get('/classmates', 'HomeController@classmates');
 
-//Route::get('/testmail', function (Request $request) {
-//        $status = $request->session()->has('status') ? $request->session()->get('status') : false;
-//
-//    return view('testmail', ['status' => $status]);
-//});
-//Route::post('/testmail', function (Request $request) {
-//    $email = $request->email;
-//    $subject = $request->subject;
-//    $text = $request->text;
-//
-//    Mail::send('emails.test', ['subject' => $subject, 'text' => $text], function ($message) use ($email, $subject) {
-//        $message->from('inedu.notice@gmail.com', 'Laravel');
-//        $message->subject($subject);
-//        $message->to($email);
-//    });
-//    $request->session()->flash('status', 'Задание выполнено успешно!');
-//    return redirect('/testmail');
-//});Route::post('/group/{group}', 'GroupController@update');
-Route::delete('/group/{group}', 'GroupController@delete');
-
 //Hometask
-Route::get('hometasks', 'HomeTaskController@viewAll');
-Route::get('/hometasks/hometaskscreate', 'HomeTaskController@create');
-Route::post('/hometasks/hometaskscreate', 'HomeTaskController@save');
+Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll');
+Route::get('/group/{group}/hometaskscreate', 'HomeTaskController@create');
+Route::post('/group/{group}/hometaskscreate', 'HomeTaskController@save');
 
-Route::get('/hometasks/{id}', 'HomeTaskController@view');
-Route::post('/hometasks/{id}', 'HomeTaskController@update');
-Route::delete('/hometasks/{id}', 'HomeTaskController@delete');
+Route::get('/group/{group}/hometask/{hometask}', 'HomeTaskController@view');
+Route::get('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@edit-update');
+Route::post('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@update');
+Route::delete('/group/{group}/hometask/{hometask}/delete', 'HomeTaskController@delete');
 
 //Article
 Route::get('articles', 'ArticleController@viewAll');

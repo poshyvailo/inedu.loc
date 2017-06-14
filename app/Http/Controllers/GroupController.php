@@ -21,6 +21,7 @@ class GroupController extends Controller
     function __construct()
     {
         $this->middleware('auth');
+//        $this->middleware('group');
     }
 
     public function viewAll(Request $request)

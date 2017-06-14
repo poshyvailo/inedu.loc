@@ -8,8 +8,8 @@ class Article extends Model
 {
      protected $fillable = ['title', 'description'];
 
-    public function user()
+    public function group()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Group::class);
     }
 }

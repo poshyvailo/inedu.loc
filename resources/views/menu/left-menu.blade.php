@@ -10,15 +10,15 @@
         <i class="fa fa-users" aria-hidden="true"></i> Группы
     </a>
 </ul>
-@if (Request::is('groups/*') && !Request::is('groups/create'))
+@if (Request::is('groups/*') || Request::is('group/*') && !Request::is('groups/create'))
     <h4>@yield('groupName')</h4>
     <ul class="list-group">
         <a href="{{ url('/articles') }}"
            class="list-group-item{!! Request::segment(1) == 'articles' ? ' active' : null !!}">
             <i class="fa fa-file-text-o" aria-hidden="true"></i> Статьи
         </a>
-        <a href="{{ url('/hometasks') }}"
-           class="list-group-item{!! Request::segment(1) == 'hometasks' ? ' active' : null !!}">
+        <a href="{{ url('/group/' . $group->id . '/hometasks') }}"
+           class="list-group-item{!! Request::segment(3) == 'hometasks' ? ' active' : null !!}">
             <i class="fa fa-tasks" aria-hidden="true"></i> Домашнии задания
         </a>
         <a href="{{ url('/events') }}"
