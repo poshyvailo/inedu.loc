@@ -48,6 +48,7 @@ Route::post('/groups/{group}/invite', 'GroupController@sendInvite'); // Отпр
 Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление группы
 
 //Invites
+Route::get('/group/{group}', 'GroupController@view');
 Route::get('/invites', 'InviteController@show'); // Отображение приглашений
 Route::get('/invite/{group}/join', 'InviteController@join'); // Вступить в группу
 Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклонить приглашение
@@ -72,4 +73,23 @@ Route::get('/classmates', 'HomeController@classmates');
 //    });
 //    $request->session()->flash('status', 'Задание выполнено успешно!');
 //    return redirect('/testmail');
-//});
+//});Route::post('/group/{group}', 'GroupController@update');
+Route::delete('/group/{group}', 'GroupController@delete');
+
+//Hometask
+Route::get('hometasks', 'HomeTaskController@viewAll');
+Route::get('/hometasks/hometaskscreate', 'HomeTaskController@create');
+Route::post('/hometasks/hometaskscreate', 'HomeTaskController@save');
+
+Route::get('/hometasks/{id}', 'HomeTaskController@view');
+Route::post('/hometasks/{id}', 'HomeTaskController@update');
+Route::delete('/hometasks/{id}', 'HomeTaskController@delete');
+
+//Article
+Route::get('articles', 'ArticleController@viewAll');
+Route::get('/articles/articlescreate', 'ArticleController@create');
+Route::post('/articles/articlescreate', 'ArticleController@save');
+
+Route::get('/articles/{id}', 'ArticleController@view');
+Route::post('/articles/{id}', 'ArticleController@update');
+Route::delete('/articles/{id}', 'ArticleController@delete');
