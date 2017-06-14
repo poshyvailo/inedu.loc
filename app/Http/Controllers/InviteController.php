@@ -26,16 +26,16 @@ class InviteController extends Controller
     {
 	$userEmail = $request->user()->email;
 	$userId = $request->user()->id;
-	
+
 	$member = new Member();
 	$member->group_id = $group->id;
 	$member->user_id = $userId;
 	$member->save();
-	
+
 	$inv = Invite::where([['email', $userEmail],['group_id', $group->id]])->first();
 	$inv->active = false;
 	$inv->save();
-	
+
 	return redirect('/groups/' . $group->id);
     }
 
