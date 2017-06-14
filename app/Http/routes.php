@@ -34,7 +34,7 @@ Route::get('/groups', 'GroupController@viewAll'); // Отображение вс
 Route::get('/groups/create', 'GroupController@create'); // Форма создания группы
 Route::post('/groups/create', 'GroupController@save'); // Добавление новой группы в БД
 //View
-Route::get('/groups/{group}', ['middleware' => 'group', 'uses' => 'GroupController@view']); // Отображение группы
+Route::get('/groups/{group}', 'GroupController@view')->middleware('group'); // Отображение группы
 //Edit
 Route::get('/groups/{group}/edit', 'GroupController@updateView')->middleware(['group', 'groupOwner']); // Форма редактирования группы
 Route::post('/groups/{group}/edit', 'GroupController@updateSave')->middleware(['group', 'groupOwner']); // Обновление группы в БД
@@ -45,7 +45,6 @@ Route::post('/groups/{group}/invite', 'GroupController@sendInvite')->middleware(
 Route::delete('/groups/{group}', 'GroupController@delete')->middleware('group'); // Удаление группы
 
 //Invites
-Route::get('/group/{group}', 'GroupController@view');
 Route::get('/invites', 'InviteController@show'); // Отображение приглашений
 Route::get('/invite/{group}/join', 'InviteController@join'); // Вступить в группу
 Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклонить приглашение
@@ -54,7 +53,7 @@ Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклон
 Route::get('/classmates', 'HomeController@classmates');
 
 //Hometask
-Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll');
+Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll')->middleware('group');
 Route::get('/group/{group}/hometasks/create', 'HomeTaskController@create')->middleware(['group', 'groupOwner']);
 Route::post('/group/{group}/hometasks/create', 'HomeTaskController@save')->middleware(['group', 'groupOwner']);
 

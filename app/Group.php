@@ -15,6 +15,11 @@ class Group extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function member()
+    {
+        return $this->hasMany(Member::class);
+    }
+
     public function article()
     {
         return $this->hasOne(Article::class);

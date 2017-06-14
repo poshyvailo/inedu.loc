@@ -15,13 +15,21 @@ class GroupMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->memberIn()) {
-            $request->session()->flash(
-                'message_warning',
-                'У Вас нет прав для посещения этой группы'
-            );
-            return redirect('/groups');
+        $members = $request->group->member()->get();
+        if ($request->group->creator_id == $request->user()->id) {
+            return $next($request);
         }
-        return $next($request);
+
+        foreach ($members as $member) {
+            if ($member->user_id == $request->user()->id) {
+                return $next($request);
+            }
+        }
+
+        $request->session()->flash(
+            'message_warning',
+            'У Вас нет прав для посещения этой группы'
+        );
+        return redirect('/groups');
     }
 }
