@@ -55,8 +55,8 @@ Route::get('/classmates', 'HomeController@classmates');
 
 //Hometask
 Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll');
-Route::get('/group/{group}/hometaskscreate', 'HomeTaskController@create');
-Route::post('/group/{group}/hometaskscreate', 'HomeTaskController@save');
+Route::get('/group/{group}/hometasks/create', 'HomeTaskController@create')->middleware('groupOwner');
+Route::post('/group/{group}/hometasks/create', 'HomeTaskController@save');
 
 Route::get('/group/{group}/hometask/{hometask}', 'HomeTaskController@view');
 Route::get('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@edit-update');

@@ -32,23 +32,28 @@ class HomeTaskController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request, Group $group)
     {
-        return view('hometasks.hometaskscreate');
+        return view('hometasks.hometaskscreate', ['group' => $group]);
     }
 
-    public function save(Request $request)
+    public function save(Request $request, Group $group)
     {
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required|string',
         ]);
-        $request->user()->group()->create([
+        $group->hometask()->create([
             'title' => $request->title,
             'description' => $request->description,
         ]);
 
-        return redirect('/hometasks');
+        $request->session()->flash(
+            'message_success',
+            'Домашнее задание <strong>' . $request->title . '</strong> успешно добавлено!'
+        );
+
+        return redirect('/group/' . $group->id . '/hometasks');
     }
     
 //    public function update(Request $request){
