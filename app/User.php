@@ -28,7 +28,12 @@ class User extends Authenticatable
     public function group(){
 	    return $this->hasOne(Group::class, 'creator_id');
     }
-    
+
+    public function member()
+    {
+        return $this->belongsToMany(Group::class, 'members');
+    }
+
     public function memberIn(){
 	$groups = Member::where('user_id', $this->id)->get();
 	if (count($groups) > 0) {

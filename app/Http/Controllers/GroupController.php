@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Invite;
+use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -25,10 +26,12 @@ class GroupController extends Controller
     public function viewAll(Request $request)
     {
         $user = $request->user();
-        $groups = Group::where('creator_id', $user->id)->get();
+        $ownerGroups = $request->user()->group()->get();
+        $memberGroups = $request->user()->member()->get();
 
         return view('group.groups', [
-            'groups' => $groups,
+            'ownerGroups' => $ownerGroups,
+            'memberGroups' => $memberGroups,
         ]);
     }
 
@@ -122,6 +125,7 @@ class GroupController extends Controller
                 'message_warning',
                 'Вы не можете отправить приглашение себе!'
             );
+            return redirect($request->path());
         }
 
         if (count($check) == 0) {

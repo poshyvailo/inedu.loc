@@ -39,8 +39,15 @@ class InviteController extends Controller
 	return redirect('/groups/' . $group->id);
     }
 
-    public function reject()
+    public function reject(Request $request, Group $group)
     {
+        $email = $request->user()->email;
 
+        Invite::where([['email', $email],['group_id', $group->id]])->delete();
+        $request->session()->flash(
+            'message_success',
+            'Вы отклонили приглашение в группу ' . $group->title
+        );
+        return redirect('/invites');
     }
 }

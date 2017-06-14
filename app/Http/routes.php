@@ -29,7 +29,9 @@ Route::post('profile/update', ['middleware' => 'auth', 'uses' => 'Profile\Profil
 //Dashboard
 //Route::get('/dashboard', 'DashboardController@show');
 
-//Groups
+/**
+ * Groups
+ **/
 Route::get('/groups', 'GroupController@viewAll'); // Отображение всех групп пользователя
 //Create
 Route::get('/groups/create', 'GroupController@create'); // Форма создания группы
@@ -49,6 +51,9 @@ Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление 
 Route::get('/invites', 'InviteController@show'); // Отображение приглашений
 Route::get('/invite/{group}/join', 'InviteController@join'); // Вступить в группу
 Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклонить приглашение
+
+//classmates
+Route::get('/classmates', 'HomeController@classmates');
 
 //Route::get('/testmail', function (Request $request) {
 //        $status = $request->session()->has('status') ? $request->session()->get('status') : false;
