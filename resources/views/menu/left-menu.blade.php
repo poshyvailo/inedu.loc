@@ -10,7 +10,7 @@
         <i class="fa fa-users" aria-hidden="true"></i> Группы
     </a>
 </ul>
-@if (Request::is('groups/*') || Request::is('group/*') && !Request::is('groups/create'))
+@if ((Request::is('groups/*') || Request::is('group/*')) && !Request::is('groups/create'))
     <h4>@yield('groupName')</h4>
     <ul class="list-group">
         <a href="{{ url('/articles') }}"

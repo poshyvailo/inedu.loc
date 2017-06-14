@@ -36,13 +36,13 @@ Route::post('/groups/create', 'GroupController@save'); // Добавление �
 //View
 Route::get('/groups/{group}', ['middleware' => 'group', 'uses' => 'GroupController@view']); // Отображение группы
 //Edit
-Route::get('/groups/{group}/edit', 'GroupController@updateView'); // Форма редактирования группы
-Route::post('/groups/{group}/edit', 'GroupController@updateSave'); // Обновление группы в БД
+Route::get('/groups/{group}/edit', 'GroupController@updateView')->middleware('group'); // Форма редактирования группы
+Route::post('/groups/{group}/edit', 'GroupController@updateSave')->middleware('group'); // Обновление группы в БД
 //Invite
-Route::get('/groups/{group}/invite', 'GroupController@inviteForm'); // Пригласить в группу
-Route::post('/groups/{group}/invite', 'GroupController@sendInvite'); // Отправить приглашение
+Route::get('/groups/{group}/invite', 'GroupController@inviteForm')->middleware('group'); // Пригласить в группу
+Route::post('/groups/{group}/invite', 'GroupController@sendInvite')->middleware('group'); // Отправить приглашение
 //Delete
-Route::delete('/groups/{group}', 'GroupController@delete'); // Удаление группы
+Route::delete('/groups/{group}', 'GroupController@delete')->middleware('group'); // Удаление группы
 
 //Invites
 Route::get('/group/{group}', 'GroupController@view');

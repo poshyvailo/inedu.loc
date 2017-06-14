@@ -24,9 +24,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
-    public function group(){
-	    return $this->hasOne(Group::class, 'creator_id');
+
+    public function group()
+    {
+        return $this->hasOne(Group::class, 'creator_id');
     }
 
     public function member()
@@ -34,11 +35,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class, 'members');
     }
 
-    public function memberIn(){
-	$groups = Member::where('user_id', $this->id)->get();
-	if (count($groups) > 0) {
-	    return true;
-	}
-	return false;
+    public function memberIn()
+    {
+
+        $createdGroups = $this->group()->get();
+        $memberGroups = $this->member()->get();
+
+        if (count($createdGroups) > 0 || count($memberGroups) > 0) {
+            return true;
+        }
+        return false;
     }
 }

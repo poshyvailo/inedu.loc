@@ -14,6 +14,7 @@ use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Underscore\Types\Object;
 
 class GroupController extends Controller
 {
@@ -21,12 +22,10 @@ class GroupController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-//        $this->middleware('group');
     }
 
     public function viewAll(Request $request)
     {
-        $user = $request->user();
         $ownerGroups = $request->user()->group()->get();
         $memberGroups = $request->user()->member()->get();
 
