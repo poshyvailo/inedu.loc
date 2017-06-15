@@ -53,6 +53,9 @@ Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклон
 //classmates
 Route::get('/classmates', 'HomeController@classmates');
 
+//Members
+Route::get('/group/{group}/members', 'GroupController@members')->middleware('group');
+
 //Hometask
 Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll')->middleware('group');
 Route::get('/group/{group}/hometasks/create', 'HomeTaskController@create')->middleware(['group', 'groupOwner']);

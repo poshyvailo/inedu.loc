@@ -155,4 +155,13 @@ class GroupController extends Controller
 
         return redirect($request->path());
     }
+    
+    public function members(Request $request, Group $group)
+    {
+	$members = $group->groupMembers()->get();
+	return view('members', [
+            'group' => $group,
+	    'members' => $members,
+        ]);
+    }
 }
