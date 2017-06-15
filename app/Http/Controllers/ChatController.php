@@ -12,6 +12,6 @@ class ChatController extends Controller
 
     public function show()
     {
-        return view('chat.forums');
+        return view('chat.messages');
     }
 }

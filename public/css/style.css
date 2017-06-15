@@ -12,44 +12,41 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font: normal normal normal 16px "Trebuchet MS", Arial, Times;
+    color: #000000;
 }
-#pixie{
-    position: fixed; 
-}
-p {
-    color: #151515;
-    font-size:22px;
-}
-
-#left{
-    float: left;
-    width: 40%;
-}
-#left p{
-    color: darkorange;
-    font-size:30px;
-}
-#left img{
-    width: 70%;
-    float: left;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-#msg-box{
-    overflow:auto; 
-    width:750px; 
-    height:300px; 
-    border:1px solid black; 
-    padding:5px; 
-    margin:0px; 
-    display:inline-block; 
-    background:#FFF; 
-    margin:32px 0 0 32px;
+/* Важное свойство */
+.chat {
+    height: 500px;
+    overflow: auto; /* Это позволяет отображать полосу прокрутки */
+    position: relative; /* Это позволяет съезжать тексту в слое, не растягивая страницу */
+    text-align: left;
+    border: solid #818181 1px;
 }
-#msg-box ul{
-    list-style:none; 
-    padding:0px; 
-    margin:0px;
+
+.chat div {
+    position: absolute; /* Страница остаётся того же размера */
 }
-#t-box{
-    margin-left:32px;
+
+.chat span {
+    display: block;
+}
+
+input[type=text],textarea {
+    width: 100%;
+    font: normal normal normal 16px "Trebuchet MS", Arial, Times;
+    border: solid #818181 1px;
+}
+
+/* Для CSS 3 */
+.r4 {
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 }

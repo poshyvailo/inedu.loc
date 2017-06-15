@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <!--<script type="text/javascript" src="js/jquery.timers.js"></script>-->
         <script type="text/javascript" src="js/jquery.cookie.js"></script>
         <script src="/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
