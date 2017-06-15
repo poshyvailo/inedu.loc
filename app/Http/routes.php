@@ -42,7 +42,8 @@ Route::post('/groups/{group}/edit', 'GroupController@updateSave')->middleware(['
 Route::get('/groups/{group}/invite', 'GroupController@inviteForm')->middleware(['group', 'groupOwner']); // Пригласить в группу
 Route::post('/groups/{group}/invite', 'GroupController@sendInvite')->middleware(['group', 'groupOwner']); // Отправить приглашение
 //Delete
-Route::delete('/groups/{group}', 'GroupController@delete')->middleware('group'); // Удаление группы
+Route::get('/groups/{group}/delete', 'GroupController@delete')->middleware('group'); // Удаление группы
+Route::get('/group/{group}/logout', 'GroupController@logout')->middleware('group');
 
 //Invites
 Route::get('/invites', 'InviteController@show'); // Отображение приглашений
@@ -63,10 +64,11 @@ Route::post('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@updat
 Route::get('/group/{group}/hometask/{hometask}/delete', 'HomeTaskController@delete')->middleware(['group', 'groupOwner']);
 
 //Article
-Route::get('articles', 'ArticleController@viewAll');
-Route::get('/articles/articlescreate', 'ArticleController@create');
-Route::post('/articles/articlescreate', 'ArticleController@save');
+Route::get('/group/{group}/articles', 'ArticleController@viewAll')->middleware('group');
+Route::get('/group/{group}/articles/create', 'ArticleController@create')->middleware(['group', 'groupOwner']);
+Route::post('/group/{group}/articles/create', 'ArticleController@save')->middleware(['group', 'groupOwner']);
 
-Route::get('/articles/{id}', 'ArticleController@view');
-Route::post('/articles/{id}', 'ArticleController@update');
-Route::delete('/articles/{id}', 'ArticleController@delete');
+Route::get('/group/{group}/article/{article}', 'ArticleController@view')->middleware('group');
+Route::get('/group/{group}/article/{article}/edit', 'ArticleController@edit')->middleware(['group', 'groupOwner']);
+Route::post('/group/{group}/article/{article}/edit', 'ArticleController@update')->middleware(['group', 'groupOwner']);
+Route::get('/group/{group}/article/{article}/delete', 'ArticleController@delete')->middleware(['group', 'groupOwner']);
