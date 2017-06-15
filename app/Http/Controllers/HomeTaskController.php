@@ -88,8 +88,24 @@ class HomeTaskController extends Controller
 
         return redirect($request->path());
     }
-    public function delete(Request $request, Group $group)
+    
+    public function view(Request $request, Group $group, Home_task $hometask)
     {
-
+        $owner = $request->user()->id == $group->creator_id ? true : false;
+        return view('hometasks.view', [
+            'hometask' => $hometask,
+	    'group' => $group,
+            'owner' => $owner,
+        ]);
+    }
+    
+    public function delete(Request $request, Group $group, Home_task $hometask)
+    {
+	$hometask->delete();
+	$request->session()->flash(
+            'message_success',
+            'Домашнее задание <strong>' . $hometask->title . '</strong> удалено!'
+        );
+	return redirect('/group/' . $group->id . '/hometasks');
     }
 }

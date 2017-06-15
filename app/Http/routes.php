@@ -57,10 +57,10 @@ Route::get('/group/{group}/hometasks', 'HomeTaskController@viewAll')->middleware
 Route::get('/group/{group}/hometasks/create', 'HomeTaskController@create')->middleware(['group', 'groupOwner']);
 Route::post('/group/{group}/hometasks/create', 'HomeTaskController@save')->middleware(['group', 'groupOwner']);
 
-Route::get('/group/{group}/hometask/{hometask}', 'HomeTaskController@view');
+Route::get('/group/{group}/hometask/{hometask}', 'HomeTaskController@view')->middleware('group');
 Route::get('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@edit')->middleware(['group', 'groupOwner']);
 Route::post('/group/{group}/hometask/{hometask}/edit', 'HomeTaskController@update')->middleware(['group', 'groupOwner']);
-Route::delete('/group/{group}/hometask/{hometask}/delete', 'HomeTaskController@delete')->middleware(['group', 'groupOwner']);
+Route::get('/group/{group}/hometask/{hometask}/delete', 'HomeTaskController@delete')->middleware(['group', 'groupOwner']);
 
 //Article
 Route::get('articles', 'ArticleController@viewAll');
