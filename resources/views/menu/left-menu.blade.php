@@ -17,7 +17,7 @@
     <li<?php echo Request::segment(1) == 'events' ? ' class="active"' : null ?>>
         <a href="{{ url('/events') }}">События</a>
     </li>
-    <li<?php echo Request::segment(1) == 'forums' ? ' class="active"' : null ?>>
-        <a href="{{ url('/forums') }}">Форумы</a>
+    <li<?php echo Request::segment(1) == 'messages' ? ' class="active"' : null ?>>
+        <a href="{{ url('/messages') }}">Форумы</a>
     </li>
 </ul>
