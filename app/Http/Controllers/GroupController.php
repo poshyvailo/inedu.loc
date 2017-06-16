@@ -158,10 +158,12 @@ class GroupController extends Controller
     
     public function members(Request $request, Group $group)
     {
-	$members = $group->groupMembers()->get();
-	return view('members', [
+        $owner = $request->user()->id == $group->creator_id ? true : false;
+	    $members = $group->groupMembers()->get();
+	    return view('members', [
             'group' => $group,
-	    'members' => $members,
+	        'members' => $members,
+            'owner' => $owner,
         ]);
     }
 }

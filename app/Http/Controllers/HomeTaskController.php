@@ -94,7 +94,7 @@ class HomeTaskController extends Controller
         $owner = $request->user()->id == $group->creator_id ? true : false;
         return view('hometasks.view', [
             'hometask' => $hometask,
-	    'group' => $group,
+	        'group' => $group,
             'owner' => $owner,
         ]);
     }

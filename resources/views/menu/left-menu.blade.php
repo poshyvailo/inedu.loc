@@ -2,10 +2,10 @@
     <a href="{{ url('') }}" class="list-group-item{!! Request::segment(1) == '' ? ' active' : null !!}">
         <i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости
     </a>
-    <a href="{{ url('/classmates') }}"
-       class="list-group-item{!! Request::segment(1) == 'classmates' ? ' active' : null !!}">
-        <i class="fa fa-address-book-o" aria-hidden="true"></i> Одногрупники
-    </a>
+    {{--<a href="{{ url('/classmates') }}"--}}
+       {{--class="list-group-item{!! Request::segment(1) == 'classmates' ? ' active' : null !!}">--}}
+        {{--<i class="fa fa-address-book-o" aria-hidden="true"></i> Одногрупники--}}
+    {{--</a>--}}
     <a href="{{ url('/groups') }}" class="list-group-item{!! Request::segment(1) == 'groups' ? ' active' : null !!}">
         <i class="fa fa-users" aria-hidden="true"></i> Группы
     </a>
@@ -29,8 +29,8 @@
                class="list-group-item{!! Request::segment(1) == 'forums' ? ' active' : null !!}">
             <i class="fa fa-comments-o" aria-hidden="true"></i> Форумы
         </a>
-        <a href="{{ url('/forums') }}"
-           class="list-group-item{!! Request::segment(1) == 'forums' ? ' active' : null !!}">
+        <a href="{{ url('/group/' . $group->id . '/members') }}"
+           class="list-group-item{!! Request::segment(3) == 'members' ? ' active' : null !!}">
             <i class="fa fa-users" aria-hidden="true"></i> Участники
         </a>
     </ul>
