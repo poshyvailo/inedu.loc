@@ -31,4 +31,32 @@ class HomeController extends Controller
     {
         return view('classmates');
     }
+
+    public function about() {
+	return view('about');
+    }
+
+    public function contacts() {
+	return view('contacts');
+    }
+
+    public function send(Request $request) {
+	$email = $request->email;
+	$name = $request->name;
+	$comments = $request->comments;
+
+
+	Mail::send('mail.email', ['name' => $name,
+	    'comments' => $comments], function ($message) use ($email, $name) {
+	    $message->from($email);
+	    $message->cc($email);
+	    $message->to('inedu.notice@gmail.com', 'Laravel');
+	    $message->subject('Вопрос от пользователя');
+	    $message->replyTo($email);
+	});
+
+	$request->session()->flash('status', 'Сообещение отправлено успешно!');
+	return redirect('/contacts');
+    }
+
 }

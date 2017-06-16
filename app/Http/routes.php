@@ -20,6 +20,11 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/about', 'HomeController@about');
+Route::get('/contacts', 'HomeController@contacts');
+
+//Отправка email для обратной связи
+Route::post('/contacts', 'HomeController@send');
 
 // Profile
 Route::get('profile/view/{user}', ['middleware' => 'auth', 'uses' => 'Profile\ProfileControllers@view']);

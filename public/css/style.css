@@ -6,3 +6,51 @@ main {
     margin: 0 0 20px;
 }
 
+body {
+    background:url(/images/background_index.jpg) no-repeat center center fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font: normal normal normal 16px "Trebuchet MS", Arial, Times;
+    color: #000000;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Важное свойство */
+.chat {
+    height: 500px;
+    overflow: auto; /* Это позволяет отображать полосу прокрутки */
+    position: relative; /* Это позволяет съезжать тексту в слое, не растягивая страницу */
+    text-align: left;
+    border: solid #818181 1px;
+}
+
+.chat div {
+    position: absolute; /* Страница остаётся того же размера */
+}
+
+.chat span {
+    display: block;
+}
+
+input[type=text],textarea {
+    width: 100%;
+    font: normal normal normal 16px "Trebuchet MS", Arial, Times;
+    border: solid #818181 1px;
+}
+
+/* Для CSS 3 */
+.r4 {
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
