@@ -122,7 +122,7 @@ return [
     */
 
     'providers' => [
-
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */

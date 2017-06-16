@@ -1,14 +1,25 @@
-<ul class="list-group">
-    <a href="{{ url('') }}" class="list-group-item{!! Request::segment(1) == '' ? ' active' : null !!}">
-        <i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости
-    </a>
-    {{--<a href="{{ url('/classmates') }}"--}}
-       {{--class="list-group-item{!! Request::segment(1) == 'classmates' ? ' active' : null !!}">--}}
-        {{--<i class="fa fa-address-book-o" aria-hidden="true"></i> Одногрупники--}}
-    {{--</a>--}}
-    <a href="{{ url('/groups') }}" class="list-group-item{!! Request::segment(1) == 'groups' ? ' active' : null !!}">
-        <i class="fa fa-users" aria-hidden="true"></i> Группы
-    </a>
+<ul class="nav nav-pills nav-stacked">
+    <li<?php echo Request::segment(1) == '' ? ' class="active"' : null ?>>
+        <a href="{{ url('/groups') }}">Новости</a>
+    </li>
+    <li<?php echo Request::segment(1) == 'classmates' ? ' class="active"' : null ?>>
+        <a href="{{ url('/classmates') }}">Одногрупники</a>
+    </li>
+    <li<?php echo Request::segment(1) == 'groups' ? ' class="active"' : null ?>>
+        <a href="{{ url('/groups') }}">Группы</a>
+    </li>
+    <li<?php echo Request::segment(1) == 'articles' ? ' class="active"' : null ?>>
+        <a href="{{ url('/articles') }}">Статьи</a>
+    </li>
+    <li<?php echo Request::segment(1) == 'home-tasks' ? ' class="active"' : null ?>>
+        <a href="{{ url('/home-tasks') }}">Домашнии задания</a>
+    </li>
+    <li<?php echo Request::segment(1) == 'events' ? ' class="active"' : null ?>>
+        <a href="{{ url('/events') }}">События</a>
+    </li>
+    <li<?php echo Request::segment(1) == 'forums' ? ' class="active"' : null ?>>
+        <a href="{{ url('/forums') }}">Форумы</a>
+    </li>
 </ul>
 @if ((Request::is('groups/*') || Request::is('group/*')) && !Request::is('groups/create'))
     <h4>@yield('groupName')</h4>
