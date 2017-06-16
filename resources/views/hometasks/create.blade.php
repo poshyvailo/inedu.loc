@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Добавить домашнее задание')
+@section('groupName', $group->title)
 @section('content')
     <h3 class="page-header">Добавить домашнее задание</h3>
     <form method="POST" role="form">
@@ -16,6 +17,6 @@
         {{--<label for="name">Загрузить файл</label>--}}
         {{--<input type="file" class="form-control"  >--}}
     {{--</div>--}}
-    <button type="submit" class="btn btn-success">Добавить ДЗ</button>
+    <button type="submit" class="btn btn-success">Добавить домашнее задание</button>
 </form>
 @endsection

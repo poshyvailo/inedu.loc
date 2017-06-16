@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Список домашних заданий')
+@section('groupName', $group->title)
 @section('content')
 @if(count($hometasks) == 0)
         <div class="text-center">
@@ -19,7 +21,7 @@
         </a>
     </div>
     @endif
-    <h3 class="page-header">Список ДЗ</h3>
+    <h3 class="page-header">Список домашних заданий</h3>
     @foreach($hometasks as $hometask)
         <div class="panel panel-default">
             <div class="panel-heading">{{ $hometask->title }}</div>
@@ -34,7 +36,7 @@
                 <a href="{{ url('/group/' . $group->id . '/hometask/' . $hometask->id . '/edit') }}" class="btn-primary btn btn-sm">
                     <span class="glyphicon glyphicon-pencil"></span> Редактировать
                 </a>
-                <a href="#" class="btn btn-danger btn-sm">
+                <a href="{{ url('/group/' . $group->id . '/hometask/' . $hometask->id . '/delete') }}" class="btn btn-danger btn-sm">
 			        <span class="glyphicon glyphicon-trash"></span> Удалить
                 </a>
                 @endif

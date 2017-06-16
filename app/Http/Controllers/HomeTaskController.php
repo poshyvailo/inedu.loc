@@ -35,7 +35,7 @@ class HomeTaskController extends Controller
 
     public function create(Request $request, Group $group)
     {
-        return view('hometasks.hometaskscreate', ['group' => $group]);
+        return view('hometasks.create', ['group' => $group]);
     }
 
     public function save(Request $request, Group $group)

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', $hometask->title)
+@section('title', 'Статья - ' . $article->title)
 @section('groupName', $group->title)
 
 @section('content')
-    <h3 class="page-header">{{ $hometask->title }}</h3>
-    <p>{{ $hometask->description }}</p>
+    <h3 class="page-header">{{ $article->title }}</h3>
+    <p>{{ $article->description }}</p>
 @endsection

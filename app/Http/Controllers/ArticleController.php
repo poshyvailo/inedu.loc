@@ -107,6 +107,6 @@ class ArticleController extends Controller
             'message_success',
             'Статья <strong>' . $article->title . '</strong> удалено!'
         );
-	return redirect('/group/' . $group->id . '/hometasks');
+	return redirect('/group/' . $group->id . '/articles');
     }
 }

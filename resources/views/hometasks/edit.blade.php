@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Добавить домашнее задание')
+@section('title', 'Изменить домашнее задание')
+@section('groupName', $group->title)
 @section('content')
     <h3 class="page-header">Изменить домашнее задание</h3>
     <form method="POST" role="form">
