@@ -1,7 +1,8 @@
 @extends('layouts.app')
+@section('title', 'Обратная связь')
 @section('content')
 <div id="contact" class="container-fluid bg-grey">
-    <h2 class="text-center">КОНТАКТЫ</h2>
+    <h2 class="page-header">Обратная связь</h2>
     <div class="row">
         <div class="col-sm-5">
             <p>Напишите нам и Мы ответим Вам в течении 24 часов.</p>

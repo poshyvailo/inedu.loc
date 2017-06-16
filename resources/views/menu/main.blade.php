@@ -1,8 +1,8 @@
 <?php
 $menu = [
-    ['title' => 'Главная', 'link' => '/'],
-    ['title' => 'О нас', 'link' => '/about'],
-    ['title' => 'Контакты', 'link' => '/contacts'],
+    ['title' => 'Главная', 'link' => ''],
+    ['title' => 'О нас', 'link' => 'about'],
+    ['title' => 'Контакты', 'link' => 'contacts'],
 ];
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -20,8 +20,8 @@ $menu = [
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @foreach ($menu as $el)
-                    <li<?php echo Request::is($el['link']) ? ' class="active"' : null ?>>
-                        <a href="{{ $el['link']}}">{{ $el['title'] }}</a>
+                    <li<?php echo Request::segment(1) == $el['link'] ? ' class="active"' : null ?>>
+                        <a href="{{ '/' . $el['link']}}">{{ $el['title'] }}</a>
                     </li>
                 @endforeach
             </ul>

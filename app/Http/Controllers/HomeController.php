@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -24,39 +24,39 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('main');
     }
 
-    public function classmates(Request $request)
+    public function about()
     {
-        return view('classmates');
+	    return view('about');
     }
 
-    public function about() {
-	return view('about');
+    public function contacts()
+    {
+	    return view('contacts');
     }
 
-    public function contacts() {
-	return view('contacts');
-    }
-
-    public function send(Request $request) {
-	$email = $request->email;
-	$name = $request->name;
-	$comments = $request->comments;
+    public function send(Request $request)
+    {
+	    $email = $request->email;
+	    $name = $request->name;
+	    $comments = $request->comments;
 
 
-	Mail::send('mail.email', ['name' => $name,
-	    'comments' => $comments], function ($message) use ($email, $name) {
-	    $message->from($email);
-	    $message->cc($email);
-	    $message->to('inedu.notice@gmail.com', 'Laravel');
-	    $message->subject('Вопрос от пользователя');
-	    $message->replyTo($email);
-	});
+	    Mail::send('mail.email', ['name' => $name, 'comments' => $comments], function ($message) use ($email, $name) {
+	        $message->from($email);
+	        $message->cc($email);
+	        $message->to('inedu.notice@gmail.com', 'Laravel');
+	        $message->subject('Вопрос от пользователя');
+	        $message->replyTo($email);
+	    });
 
-	$request->session()->flash('status', 'Сообещение отправлено успешно!');
-	return redirect('/contacts');
+	    $request->session()->flash(
+	        'message_success',
+            'Сообещение отправлено успешно!'
+        );
+	    return redirect($request->path());
     }
 
 }

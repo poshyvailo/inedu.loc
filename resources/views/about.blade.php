@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'О нас')
 @section('content')
 <canvas id="pixie"></canvas>
 <div>
