@@ -6,19 +6,19 @@ main {
     margin: 0 0 20px;
 }
 
-body {
-    background:url(/images/background_index.jpg) no-repeat center center fixed;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font: normal normal normal 16px "Trebuchet MS", Arial, Times;
-    color: #000000;
-}
+/*body {*/
+    /*background:url(/images/background_index.jpg) no-repeat center center fixed;*/
+    /*-webkit-background-size: 100%;*/
+    /*-moz-background-size: 100%;*/
+    /*-o-background-size: 100%;*/
+    /*background-size: 100%;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+    /*font: normal normal normal 16px "Trebuchet MS", Arial, Times;*/
+    /*color: #000000;*/
+/*}*/
 * {
     margin: 0;
     padding: 0;
@@ -53,4 +53,8 @@ input[type=text],textarea {
     -khtml-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
+}
+
+.avatar {
+    width: 100px;
 }

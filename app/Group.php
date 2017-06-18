@@ -34,4 +34,9 @@ class Group extends Model
     {
         return $this->hasOne(Home_task::class, 'group_id');
     }
+
+    public function thread()
+    {
+        return $this->hasOne(Thread::class, 'group_id');
+    }
 }

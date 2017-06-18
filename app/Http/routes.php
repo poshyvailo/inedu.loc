@@ -80,24 +80,20 @@ Route::get('/group/{group}/article/{article}', 'ArticleController@view')->middle
 Route::get('/group/{group}/article/{article}/edit', 'ArticleController@edit')->middleware(['group', 'groupOwner']);
 Route::post('/group/{group}/article/{article}/edit', 'ArticleController@update')->middleware(['group', 'groupOwner']);
 Route::get('/group/{group}/article/{article}/delete', 'ArticleController@delete')->middleware(['group', 'groupOwner']);
-Route::get('/group/{group}', 'GroupController@view');
-Route::post('/group/{group}', 'GroupController@update');
-Route::delete('/group/{group}', 'GroupController@delete');
 
-//Chat
-Route::get('/groups/chat', 'ChatController@viewAll');
-Route::get('/groups/chat/create', 'ChatController@create');
-Route::post('/groups/chat/create', 'ChatController@save');
+//Messenger
+Route::get('/group/{group}/forums', 'MessagesController@index')->middleware('group');
+Route::get('/group/{group}/forums/create', 'MessagesController@create')->middleware('group');
+Route::post('/group/{group}/forums/create', 'MessagesController@store')->middleware('group');
+Route::get('/group/{group}/forum/{id}', 'MessagesController@show')->middleware('group');
+Route::put('/group/{group}/forum/{id}', 'MessagesController@update')->middleware('group');
 
-Route::get('/group/chat/{id}', 'ChatController@view');
-Route::post('/group/chat/{id}', 'ChatController@update');
-Route::delete('/group/chat/{id}', 'ChatController@delete');
-
-
-Route::group(['prefix' => 'messages'], function () {
-    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
-});
+// Events
+Route::get('/group/{group}/events', 'EventController@view');
+//Route::group(['prefix' => 'messages'], function () {
+//    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+//    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+//    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+//    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+//    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+//});
