@@ -7,10 +7,12 @@
     <script src="/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="/js/moment.min.js" type="text/javascript"></script>
     <script src="/js/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
     <script src="/js/locale/ru.js" type="text/javascript"></script>
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
 </head>

@@ -89,11 +89,11 @@ Route::get('/group/{group}/forum/{id}', 'MessagesController@show')->middleware('
 Route::put('/group/{group}/forum/{id}', 'MessagesController@update')->middleware('group');
 
 // Events
-Route::get('/group/{group}/events', 'EventController@view');
-Route::get('/group/{group}/events/list', 'EventController@viewList');
-Route::get('/group/{group}/events/create', 'EventController@create');
-Route::post('/group/{group}/events/create', 'EventController@save');
-Route::get('/group/{group}/event/{event}/edit', 'EventController@edit');
-Route::post('/group/{group}/event/{event}/edit', 'EventController@update');
-Route::get('/group/{group}/event/{event}/delete', 'EventController@update');
+Route::get('/group/{group}/events', 'EventController@view')->middleware('group');
+Route::get('/group/{group}/events/list', 'EventController@viewList')->middleware(['group', 'groupOwner']);
+Route::get('/group/{group}/events/create', 'EventController@create')->middleware(['group', 'groupOwner']);
+Route::post('/group/{group}/events/create', 'EventController@save')->middleware(['group', 'groupOwner']);
+Route::get('/group/{group}/event/{event}/edit', 'EventController@edit')->middleware(['group', 'groupOwner']);
+Route::post('/group/{group}/event/{event}/edit', 'EventController@update')->middleware(['group', 'groupOwner']);
+Route::get('/group/{group}/event/{event}/delete', 'EventController@delete')->middleware(['group', 'groupOwner']);
 
