@@ -48,4 +48,12 @@ class EventController extends Controller
              'calendar' => $calendar,
          ]);
      }
+
+     public function viewList(Request $request, Group $group)
+     {
+         return view('event.list', [
+             'group' => $group,
+         ]);
+     }
+
 }

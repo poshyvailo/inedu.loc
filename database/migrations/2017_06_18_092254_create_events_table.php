@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvents extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,11 @@ class CreateEvents extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_id')->unsigned()->index();
-            $table->integer('creator_id')->unsigned()->index();
             $table->string('title');
-            $table->text('description');
-            $table->string('place');
-            $table->dateTime('date');
-            $table->string('file');
+            $table->integer('group_id')->unsigned()->index();
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->boolean('all_day');
             $table->timestamps();
         });
     }

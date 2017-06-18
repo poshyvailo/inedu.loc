@@ -90,10 +90,10 @@ Route::put('/group/{group}/forum/{id}', 'MessagesController@update')->middleware
 
 // Events
 Route::get('/group/{group}/events', 'EventController@view');
-//Route::group(['prefix' => 'messages'], function () {
-//    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-//    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-//    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-//    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-//    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
-//});
+Route::get('/group/{group}/events/list', 'EventController@viewList');
+Route::get('/group/{group}/events/create', 'EventController@create');
+Route::post('/group/{group}/events/create', 'EventController@save');
+Route::get('/group/{group}/event/{event}/edit', 'EventController@edit');
+Route::post('/group/{group}/event/{event}/edit', 'EventController@update');
+Route::get('/group/{group}/event/{event}/delete', 'EventController@update');
+

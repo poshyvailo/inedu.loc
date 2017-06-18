@@ -39,4 +39,9 @@ class Group extends Model
     {
         return $this->hasOne(Thread::class, 'group_id');
     }
+
+    public function event()
+    {
+        return $this->hasOne(Event::class);
+    }
 }
