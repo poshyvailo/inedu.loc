@@ -96,11 +96,6 @@ class GroupController extends Controller
         return redirect($request->path());
     }
 
-    public function delete(Request $request, Group $group)
-    {
-
-    }
-
     public function inviteForm(Group $group)
     {
         return view('group.invite', [
@@ -165,5 +160,17 @@ class GroupController extends Controller
 	        'members' => $members,
             'owner' => $owner,
         ]);
+    }
+
+    public function delete(Request $request, Group $group)
+    {
+        $group->article()->delete();
+        $group->hometask()->delete();
+        $group->event()->delete();
+        $group->thread()->delete();
+        $group->member()->delete();
+        $group->delete();
+
+        return redirect('/groups');
     }
 }

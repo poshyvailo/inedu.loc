@@ -4,7 +4,7 @@
 @section('content')
 @if(count($hometasks) == 0)
         <div class="text-center">
-            <h2>В группе нет ДЗ</h2>
+            <h2>В группе нет домашних заданий</h2>
             <hr>
             @if ($owner)
             <a href="{{ url('/group/' . $group->id . '/hometasks/create') }}" class="btn btn-lg btn-success">

@@ -13,13 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
-
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/about', 'HomeController@about');
 Route::get('/contacts', 'HomeController@contacts');
 
@@ -57,6 +53,9 @@ Route::get('/invite/{group}/reject', 'InviteController@reject'); // Отклон
 
 //classmates
 Route::get('/classmates', 'HomeController@classmates');
+
+//News
+Route::get('/news', 'HomeController@news');
 
 //Members
 Route::get('/group/{group}/members', 'GroupController@members')->middleware('group');

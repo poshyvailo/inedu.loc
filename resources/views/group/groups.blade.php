@@ -32,7 +32,7 @@
                 <a href="{{ url('/groups/' . $group->id . '/edit') }}" class="btn-primary btn btn-sm">
                     <span class="glyphicon glyphicon-pencil"></span> Редактировать
                 </a>
-                <a href="#" class="btn btn-danger btn-sm">
+                <a href="{{ url('/groups/' . $group->id . '/delete') }}" class="btn btn-danger btn-sm">
 			<span class="glyphicon glyphicon-trash"></span> Удалить
                 </a>
             </div>
@@ -52,7 +52,7 @@
                 <a href="{{ url('/groups/' . $group->id) }}" class="btn-success btn btn-sm">
                     <span class="glyphicon glyphicon-eye-open"></span> Перейти
                 </a>
-                <a href="#" class="btn btn-danger btn-sm">
+                <a href="{{ url('/groups/' . $group->id . '/delete') }}" class="btn btn-danger btn-sm">
                     <span class="glyphicon glyphicon-trash"></span> Выйти из группы
                 </a>
             </div>

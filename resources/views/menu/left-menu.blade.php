@@ -1,11 +1,11 @@
 <ul class="list-group">
-    <a href="{{ url('') }}" class="list-group-item{!! Request::segment(1) == '' ? ' active' : null !!}">
+    <a href="{{ url('/news') }}" class="list-group-item{!! Request::segment(1) == 'news' ? ' active' : null !!}">
         <i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости
     </a>
-    <a href="{{ url('/classmates') }}"
-       class="list-group-item{!! Request::segment(1) == 'classmates' ? ' active' : null !!}">
-        <i class="fa fa-address-book-o" aria-hidden="true"></i> Одногрупники
-    </a>
+    {{--<a href="{{ url('/classmates') }}"--}}
+       {{--class="list-group-item{!! Request::segment(1) == 'classmates' ? ' active' : null !!}">--}}
+        {{--<i class="fa fa-address-book-o" aria-hidden="true"></i> Одногрупники--}}
+    {{--</a>--}}
     <a href="{{ url('/groups') }}" class="list-group-item{!! Request::segment(1) == 'groups' ? ' active' : null !!}">
         <i class="fa fa-users" aria-hidden="true"></i> Группы
     </a>

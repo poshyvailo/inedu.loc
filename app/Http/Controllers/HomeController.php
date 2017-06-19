@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -22,9 +23,22 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('main');
+        $news = null;
+
+        if (Auth::check()) {
+            $groups = $request->user()->member()->get();
+            foreach ($groups as $group) {
+                $news['article'][] = $group->article()->limit(5)->get();
+                $news['hometask'][] = $group->hometask()->limit(5)->get();
+                $news['events'][] = $group->event()->limit(5)->get();
+            }
+        }
+
+        return view('main', [
+            'news' => $news,
+        ]);
     }
 
     public function about()
