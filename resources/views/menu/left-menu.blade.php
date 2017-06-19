@@ -1,5 +1,5 @@
 <ul class="list-group">
-    <a href="{{ url('/news') }}" class="list-group-item{!! Request::segment(1) == 'news' ? ' active' : null !!}">
+    <a href="{{ url('/') }}" class="list-group-item{!! Request::segment(1) == '' ? ' active' : null !!}">
         <i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости
     </a>
     {{--<a href="{{ url('/classmates') }}"--}}

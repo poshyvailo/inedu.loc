@@ -64,31 +64,31 @@
             @endif
         @endforeach
 
-        @foreach($news['events'] as $collection)
-            @if(count($collection) == 0)
-                <h3>У вас нет событий</h3>
-            @else
-                <h3>Последние события</h3>
-            <table class="table">
-                <tr>
-                    <th>Заголовок</th>
-                    <th>Группа</th>
-                    <th>Дата создания</th>
-                    <th>Дата обновления</th>
-                </tr>
-                @foreach($collection as $item)
-                    <tr>
-                        <td>
-                            <a href="{{ url('/group/' . $item->group_id . '/article/' . $item->id) }}">{{ $item->title }}</a>
-                        </td>
-                        <td>{{ $item->group->title }}</td>
-                        <td>{{ date('d.m.Y в H:i', strtotime($item->created_at)) }}</td>
-                        <td>{{ date('d.m.Y в H:i', strtotime($item->updated_at)) }}</td>
-                    </tr>
-                @endforeach
-            </table>
-            @endif
-        @endforeach
+        {{--@foreach($news['events'] as $collection)--}}
+            {{--@if(count($collection) == 0)--}}
+                {{--<h3>У вас нет событий</h3>--}}
+            {{--@else--}}
+                {{--<h3>Последние события</h3>--}}
+            {{--<table class="table">--}}
+                {{--<tr>--}}
+                    {{--<th>Заголовок</th>--}}
+                    {{--<th>Группа</th>--}}
+                    {{--<th>Дата создания</th>--}}
+                    {{--<th>Дата обновления</th>--}}
+                {{--</tr>--}}
+                {{--@foreach($collection as $item)--}}
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<a href="{{ url('/group/' . $item->group_id . '/article/' . $item->id) }}">{{ $item->title }}</a>--}}
+                        {{--</td>--}}
+                        {{--<td>{{ $item->group->title }}</td>--}}
+                        {{--<td>{{ date('d.m.Y в H:i', strtotime($item->created_at)) }}</td>--}}
+                        {{--<td>{{ date('d.m.Y в H:i', strtotime($item->updated_at)) }}</td>--}}
+                    {{--</tr>--}}
+                {{--@endforeach--}}
+            {{--</table>--}}
+            {{--@endif--}}
+        {{--@endforeach--}}
     @else
         <h4>Вы не состоите ни в одной группе</h4>
     @endif

@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^inedu.zzz.com.ua$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.inedu.zzz.com.ua$
+RewriteCond %{REQUEST_URI} !folder/
+RewriteRule (.*) /public/$1 [L]
