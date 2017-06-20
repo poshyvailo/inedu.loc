@@ -21,6 +21,9 @@
 <main>
     @if (Auth::guest())
         <div class="container">
+	    @include('alerts.success')
+            @include('alerts.danger')
+            @include('alerts.warning')
             @yield('content')
         </div>
     @else

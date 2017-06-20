@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -57,10 +58,11 @@ class HomeController extends Controller
 	    $name = $request->name;
 	    $comments = $request->comments;
 
-
-	    Mail::send('mail.email', ['name' => $name, 'comments' => $comments], function ($message) use ($email, $name) {
+	    Mail::send('emails.callback', [
+		'name' => $name, 
+		'comments' => $comments
+	    ], function ($message) use ($email, $name) {
 	        $message->from($email);
-	        $message->cc($email);
 	        $message->to('inedu.notice@gmail.com', 'Laravel');
 	        $message->subject('Вопрос от пользователя');
 	        $message->replyTo($email);
@@ -68,7 +70,7 @@ class HomeController extends Controller
 
 	    $request->session()->flash(
 	        'message_success',
-            'Сообещение отправлено успешно!'
+		'Сообещение отправлено успешно!'
         );
 	    return redirect($request->path());
     }
